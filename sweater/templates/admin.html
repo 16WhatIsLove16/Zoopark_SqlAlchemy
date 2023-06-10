@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<div class="animal">
+    <p>Данные о животных</p>
+    <p><a href="{{ url_for('animals') }}">Список животных</a></p>
+    <p><a href="{{ url_for('new_animal') }}">Добавить</a></p>
+    <p><a href="{{ url_for('delete_animal') }}">Удалить</a></p>
+</div>
+<div class="users">
+    <p>Данные о пользователях</p>
+    <p><a href="{{ url_for('profiles_employees') }}">Список пользователей</a></p>
+    <p><a href="{{ url_for('register') }}">Зарегистрировать</a></p>
+    <p><a href="{{ url_for('delete_user') }}">Удалить</a></p>
+</div>
+
+{% endblock %}

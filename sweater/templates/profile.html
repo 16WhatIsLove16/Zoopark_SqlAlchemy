@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+{% for p in personal %}
+<form method="POST" enctype=multipart/form-data>
+    <table>
+        <tr>
+            <td>ФИО</td>
+            <td>{{ p.pr.surname }}  {{ p.pr.name }}  {{ p.pr.patronymic }}</td>
+        </tr>
+        <tr>
+            <td>Должность</td>
+            <td>{{ p.pr.post }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ p.email }}</td>
+        </tr>
+        <tr>
+            <td>Телефон</td>
+            <td>{{ p.pr.telephone }}</td>
+        </tr>
+        {% if p.pr.post != 'Администратор' %}
+        <tr>
+            <td><a href="{{ url_for('animals') }}">Список животных</a></td>
+        </tr>
+        {% endif %}
+        {% if p.pr.post == 'Администратор' %}
+        <tr>
+            <td><a href="{{ p.url }}"> {{ p.pr.post }}</a></td>
+        </tr>
+        {% endif %}
+
+    </table>
+</form>
+
+{% endfor %}
+{% endblock %}

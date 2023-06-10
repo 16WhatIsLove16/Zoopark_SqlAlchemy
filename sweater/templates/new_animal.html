@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{ cat }}">{{ msg }}</div>
+{% endfor %}
+
+<h1>{{title}}</h1>
+<form action="" method="post" class="form-new-animal" enctype=multipart/form-data>
+<p><label>Дата прибытия: </label> <input type="text" name="date_of_receipt" value="" required />
+<p><label>Вид: </label> <input type="text" name="type" value="" required />
+<p><label>Описание: </label> <input type="text" name="description" value="" required />
+<p><label>Статус: </label> <input type="text" name="status" value="" required />
+<p><label>Размер вольера: </label> <input type="text" name="size" value="" required />
+<p><label>Тип вольера: </label> <input type="text" name="type_aviary" value="" />
+<p><label>Особенности вольера: </label> <input type="text" name="features" value="" required />
+<p><label>Пол животного: </label> <input type="text" name="gender" value="" required />
+<p><label>Вес животного: </label> <input type="text" name="weight" value="" required />
+<p><label>Высота животного: </label> <input type="text" name="height" value="" required />
+<p><label>Особые приметы: </label> <input type="text" name="special_signs" value="" required />
+<p><label>Состояние здоровья: </label> <input type="text" name="health_status" value="" />
+<p><label>История болезни: </label> <input type="text" name="medical_history" value="" required />
+<p><label>Заполнить отчёт </label> <input type="file" name="upload_file" value=""  />
+<p><input type="submit" value="Добавить" />
+</form>
+{% endblock %}

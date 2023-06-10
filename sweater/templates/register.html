@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<form action="" method="post" class="form-contact" enctype="multipart/form-data">
+<p><label>Фамилия: </label> <input type="text" name="surname" value="" required />
+<p><label>Имя: </label> <input type="text" name="name" value="" required />
+<p><label>Отчество: </label> <input type="text" name="patronymic" value="" required />
+<p><label>Возраст: </label> <input type="text" name="old" value="" required />
+<p><label>Дата рождения: </label> <input type="text" name="date_of_birth" value="" />
+<p><label>Контактный телефон: </label> <input type="text" name="telephone" value="" required />
+<p><label>Адрес проживания: </label> <input type="text" name="address" value="" required />
+<p><label>Дата принятия на работу: </label> <input type="text" name="date_of_admission" value="" />
+<p><label>Должность: </label> <input type="text" name="post" value="" required />
+<!--<p><label>Фото: </label> <input type="file" name="file" value=""  />-->
+<p><label>Город: </label> <input type="text" name="city" value="" required />
+<p><label>Email: </label> <input type="text" name="email" value="" required />
+<p><label>Логин: </label> <input type="text" name="login" value="" required />
+<p><label>Пароль: </label> <input type="password" name="password" value="" required />
+<p><label>Повтор пароля: </label> <input type="password" name="password2" value="" required />
+<p><label>URL: </label> <input type="text" name="url" value="" required />
+<p><input type="submit" value="Регистрация" />
+</form>
+{% endblock %}

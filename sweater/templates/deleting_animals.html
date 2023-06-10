@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>{{title}}</h1>
+<form action="" method="post" class="delete_animals" enctype=multipart/form-data>
+{% for an in list_of_animal %}
+    <p><label>{{ an.type }}</label></p>
+{% endfor %}
+<p><label>Введите вид животного, которое нужно удалить: </label><input type="text" name="animal" value="" />
+<p><input type="submit" value="Удалить" />
+</form>
+{% endblock %}

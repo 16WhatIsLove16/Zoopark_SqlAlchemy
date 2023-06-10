@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>{{title}}</h1>
+<form action="" method="post" class="delete_users" enctype=multipart/form-data>
+{% for us in list_of_users %}
+    <p><label>{{ us.login }}</label></p>
+{% endfor %}
+<p><label>Введите логин человека, которого нужно удалить: </label><input type="text" name="login" value="" />
+<p><input type="submit" value="Удалить" />
+</form>
+{% endblock %}
