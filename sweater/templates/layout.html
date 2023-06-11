@@ -2,16 +2,21 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
-    <title>{{title}}</title>
+    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
+    <title>{{layout}}</title>
 </head>
 <body>
 {% if current_user.is_authenticated %}
 <div class="menu">
-    <p>{{ current_user.pr.surname }} {{ current_user.pr.name }} {{ current_user.pr.patronymic }}</p>
-    | <a href="{{ url_for('profile', nickname=current_user.login) }}">{{ current_user.pr.post }}</a>
-    | <a href="{{ url_for('logout') }}">Выйти</a>
-    <img class="main_logo" src="static/images/logo.png" alt="Лого" />
+    <div class="info">
+        <p class="FNP">{{ current_user.pr.surname }} {{ current_user.pr.name }} {{ current_user.pr.patronymic }}</p>
+        <a class="post" href="{{ url_for('profile', nickname=current_user.login) }}">{{ current_user.pr.post }}</a>
+    </div>
+    <a href="{{ url_for('animals') }}">Поиск</a>
+    <a href="{{ url_for('logout') }}">Выйти</a>
+    <img class="main_logo" src="logo.gif" alt="Лого" />
+</div>
+
 {% endif %}
 <div class="content">
     {% block content %}
@@ -19,6 +24,6 @@
     {% endblock %}
 </div>
 
-</div>
+
 </body>
 </html>

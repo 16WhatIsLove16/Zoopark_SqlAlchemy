@@ -1,18 +1,14 @@
 {% extends 'layout.html' %}
 {% block content %}
 
-<form action="" method="post" class="form-staff">
+<form action="" method="post" class="form-update-animal">
 <button><a href="{{ url_for('animal', alias=title) }}">Обновить страницу</a></button>
 </form>
 
 <h1>{{title}}</h1>
-{% with flash_messages = get_flashed_messages() %}
-   {% if messages %}
-      {% for message in flash_messages %}
-         {{ message }}
-      {% endfor %}
-   {% endif %}
-{% endwith %}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{ cat }}">{{ msg }}</div>
+{% endfor %}
 
 {% for animal in concrete_animal %}
 <div class="">
@@ -36,7 +32,7 @@
         <p><a href="{{ url_for('download', upload_id=u.animal_id) }}">Заполнить отчёт медика</a></p>
     {% elif url == 'medic' %}
     {% for message in messages %}
-        <div>{{ message.animal_id }}  {{ message.text }}</div>
+        <div>{{ message.id }}  {{ message.text }}</div>
     {% endfor %}
     <p><a href="{{ url_for('download', upload_id=u.animal_id) }}">Заполнить отчёт</a></p>
     <form action="" method="post" class="form-animal" enctype=multipart/form-data>

@@ -4,6 +4,7 @@
 <h1>{{title}}</h1>
 {% for p in personal %}
 <form method="POST" enctype=multipart/form-data>
+    <button><a href="{{ url_for('profile', nickname=personal[0].login) }}">Обновить страницу</a></button>
     <table>
         <tr>
             <td>ФИО</td>

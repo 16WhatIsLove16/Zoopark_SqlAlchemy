@@ -1,6 +1,10 @@
 {% extends 'layout.html' %}
 {% block content %}
 <h1>{{title}}</h1>
+
+<form action="" method="post" class="form-new-animal" enctype=multipart/form-data>
+<button><a href="{{ url_for('animals') }}">Обновить страницу</a></button>
+</form>
 {% for an in list_of_animal %}
 <ul>
 <a href="{{ url_for('animal', alias=an.type) }}">{{ an.type }}</a>

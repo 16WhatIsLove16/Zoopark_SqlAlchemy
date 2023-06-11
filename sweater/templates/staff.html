@@ -1,6 +1,11 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{ cat }}">{{ msg }}</div>
+{% endfor %}
+
 <h1>{{title}}</h1>
 <form action="" method="post" class="form-staff">
 <button><a href="{{ url_for('staff', alias=animal.type) }}">Обновить страницу</a></button>

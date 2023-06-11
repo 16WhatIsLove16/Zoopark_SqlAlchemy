@@ -8,6 +8,7 @@
 
 <h1>{{title}}</h1>
 <form action="" method="post" class="form-new-animal" enctype=multipart/form-data>
+<button><a href="{{ url_for('new_animal') }}">Обновить страницу</a></button>
 <p><label>Дата прибытия: </label> <input type="text" name="date_of_receipt" value="" required />
 <p><label>Вид: </label> <input type="text" name="type" value="" required />
 <p><label>Описание: </label> <input type="text" name="description" value="" required />

@@ -1,0 +1,55 @@
+body{
+    background-color: #A6B760;
+}
+.menu{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    margin-left: -3%;
+    height: 10%;
+    width: 110%;
+    background-color: #5A8B47;
+
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-left: 3%;
+    margin-top: -0.3%;
+}
+.FNP{
+    width: 600px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100;
+    line-height: 20px;
+}
+.post{
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100;
+    line-height: 20px;
+}
+.logout{
+    height: 45px;
+    width: 180px;
+    margin-top: 12px;
+    margin-left:540px;
+    background: #005E34;
+    border-radius: 23px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+    color: #FFFFFF;
+}
+.main_logo{
+    position: fixed;
+    height: 100px;
+    width: 135px;
+    top: 610px;
+    left: 1200px;
+}

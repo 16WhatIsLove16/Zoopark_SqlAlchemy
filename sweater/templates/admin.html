@@ -2,6 +2,11 @@
 
 {% block content %}
 <h1>{{ title }}</h1>
+
+<form action="" method="post" class="form-new-animal" enctype=multipart/form-data>
+<button><a href="{{ url_for('admin') }}">Обновить страницу</a></button>
+</form>
+
 <div class="animal">
     <p>Данные о животных</p>
     <p><a href="{{ url_for('animals') }}">Список животных</a></p>

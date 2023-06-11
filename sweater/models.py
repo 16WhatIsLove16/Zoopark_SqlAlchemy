@@ -1,8 +1,6 @@
 from flask_login import UserMixin
 
 from sweater import db, manager
-from datetime import datetime
-
 
 class Employees(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -68,14 +66,13 @@ class Animals(db.Model):
     date_of_receipt = db.Column(db.Text)
     type = db.Column(db.Text, nullable=True)
     description = db.Column(db.Text, nullable=True)
-    # photo = db.Column(db.LargeBinary, nullable=True)
     status = db.Column(db.Text, nullable=True)
 
     aviary = db.relationship('Aviary', backref='animals', uselist=False)
     medical_card = db.relationship('Medical_card', backref='animals', uselist=False)
     water_treatments = db.relationship('Water_treatments', backref='animals')
-    vaccination = db.relationship('Vaccination', backref='animals')
-    wellness = db.relationship('Wellness_activities', backref='animals')
+    # vaccination = db.relationship('Vaccination', backref='animals')
+    # wellness = db.relationship('Wellness_activities', backref='animals')
     food = db.relationship('Food', backref='animals')
     upload = db.relationship('Upload', backref='animals')
     message = db.relationship('Message', backref='animals')
@@ -92,7 +89,7 @@ class Medical_card(db.Model):
 
     animal_id = db.Column(db.Integer, db.ForeignKey('animals.id'))
 
-    vaccination = db.relationship('Vaccination', backref='medical_card')
+    # vaccination = db.relationship('Vaccination', backref='medical_card')
     food = db.relationship('Food', backref='medical_card')
 
 
@@ -104,23 +101,23 @@ class Water_treatments(db.Model):
     animal_id = db.Column(db.Integer, db.ForeignKey('animals.id'))
 
 
-class Vaccination(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name_vaccination = db.Column(db.Text, nullable=True)
-    date_vaccination = db.Column(db.Text)
-    time = db.Column(db.Text)
+# class Vaccination(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     name_vaccination = db.Column(db.Text, nullable=True)
+#     date_vaccination = db.Column(db.Text)
+#     time = db.Column(db.Text)
+#
+#     animal_id = db.Column(db.Integer, db.ForeignKey('animals.id'))
+#     vac = db.Column(db.Integer, db.ForeignKey('medical_card.id'))
 
-    animal_id = db.Column(db.Integer, db.ForeignKey('animals.id'))
-    vac = db.Column(db.Integer, db.ForeignKey('medical_card.id'))
 
-
-class Wellness_activities(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name_activities = db.Column(db.Text, nullable=True)
-    data = db.Column(db.Text)
-    time = db.Column(db.Text)
-
-    animal_id = db.Column(db.Integer, db.ForeignKey('animals.id'))
+# class Wellness_activities(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     name_activities = db.Column(db.Text, nullable=True)
+#     data = db.Column(db.Text)
+#     time = db.Column(db.Text)
+#
+#     animal_id = db.Column(db.Integer, db.ForeignKey('animals.id'))
 
 
 class Food(db.Model):
@@ -146,19 +143,6 @@ class Message(db.Model):
 
     animal_id = db.Column(db.Integer, db.ForeignKey('animals.id'))
 
-    # def __init__(self, text, tags):
-    #     self.text = text.strip()
-    #     self.tags = [
-    #         Tag(text=tag.strip()) for tag in tags.split(',')
-    #     ]
-
-
-# class Tag(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     text = db.Column(db.String(32), nullable=False)
-#
-#     message_id = db.Column(db.Integer, db.ForeignKey('message.id'), nullable=False)
-#     message = db.relationship('Message', backref=db.backref('tags', lazy=True))
 
 @manager.user_loader
 def load_user(user_id):

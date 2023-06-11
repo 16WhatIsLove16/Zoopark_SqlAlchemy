@@ -1,12 +1,10 @@
-import os
 from io import BytesIO
-from flask import render_template, redirect, url_for, request, flash, send_from_directory, send_file, make_response
-from flask_login import login_user, login_required, logout_user, current_user, UserMixin
+from flask import render_template, redirect, url_for, request, flash, send_file
+from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
-from werkzeug.utils import secure_filename
 
 from sweater.models import Employees, Profile, Message, Aviary, Cleaning,\
-    Animals, Medical_card, Water_treatments, Vaccination, Wellness_activities,\
+    Animals, Medical_card, Water_treatments, \
     Food, Upload
 from sweater import app, db
 
@@ -51,24 +49,14 @@ def enter():
 @login_required
 def profile(nickname):
     personal = Employees.query.filter_by(login=nickname).all()
-    if not personal:
-        pass
-        # flash('Такого пользователя не существует', category='fail')
-    url = personal[0].url
-    info = personal[0].pr
-    return render_template("profile.html", title="Профиль", personal=personal, url=url, info=info)
+    print(personal)
+    return render_template("profile.html", title="Профиль", personal=personal)
 
 
 @app.route("/admin", methods=['GET', 'POST'])
 @login_required
 def admin():
     return render_template('admin.html', title="Админ")
-
-
-@app.route("/medic", methods=['GET', 'POST'])
-@login_required
-def medic():
-    return render_template('medic.html', title="Медик")
 
 
 @app.route("/staff/<alias>", methods=['GET', 'POST'])
@@ -79,6 +67,7 @@ def staff(alias):
     list_cleaning = Cleaning.query.filter_by(aviary_id=animal[0].aviary.animal_id).all()
     list_food = Food.query.filter_by(animal_id=animal[0].id).all()
     list_water = Water_treatments.query.filter_by(animal_id=animal[0].id).all()
+
     if request.method == 'POST':
         try:
             clean = Cleaning(aviary_id=animal[0].aviary.animal_id, date_clean=request.form['date_clean'],
@@ -101,26 +90,25 @@ def staff(alias):
                 db.session.add(water)
                 db.session.commit()
 
-            # flash('Отчёт успешно загружен', category='success')
+            flash('Отчёт успешно загружен', category='success')
             print("Информация успешно добавлена")
         except Exception as e:
             db.session.rollback()
-            # flash('Ошибка добавления в базу данных')
+            flash('Ошибка добавления в базу данных')
             print("Ошибка добавления в БД")
             print(e)
 
     return render_template('staff.html', title="Обслуживающий персонал",
-                           messages=messages, list_cleaning=list_cleaning,
-                           list_food=list_food, list_water=list_water, animal=animal[0])
-
+                           messages=messages, list_cleaning=list_cleaning[-2:],
+                           list_food=list_food[-2:], list_water=list_water[-2:],
+                           animal=animal[0])
 
 @app.route("/animals", methods=['GET', 'POST'])
 @login_required
 def animals():
     list_of_animal = Animals.query.all()
     if not list_of_animal:
-        pass
-        # flash('Животных нет(')
+        return "Животных нет"
     return render_template('animals.html', title="Список животных", list_of_animal=list_of_animal)
 
 
@@ -156,13 +144,13 @@ def animal(alias):
                 db.session.delete(del_mes)
                 db.session.commit()
 
-            # flash("Информация успешно добавлена")
+            flash("Информация успешно добавлена")
             print("Информация успешно добавлена")
 
         except Exception as e:
             db.session.rollback()
             print("Ошибка добавления в БД")
-            # flash("Ошибка добавления в БД")
+            flash("Ошибка добавления в БД")
             print(e)
 
     return render_template('animal.html', title=alias,
@@ -170,12 +158,6 @@ def animal(alias):
                            user=current_user, url=url,
                            download=download, temp=temp,
                            messages=messages)
-
-
-@app.route('/main', methods=['GET'])
-@login_required
-def main():
-    return render_template('main.html', messages=Message.query.all())
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -202,7 +184,10 @@ def register():
             db.session.add(p)
             db.session.commit()
 
+            flash("Пользователь успешно загружен", category="success")
+
         except Exception as e:
+            flash("Ошибка добавления в БД", category="error")
             db.session.rollback()
             print("Ошибка добавления в БД")
             print(e)
@@ -272,25 +257,28 @@ def delete_animal():
         try:
             animal = request.form['animal']
             choose_animal = Animals.query.filter_by(type=animal).first()
+            print(choose_animal.water_treatments)
             lst = [choose_animal, choose_animal.aviary,
                    choose_animal.medical_card,
-                   choose_animal.water_treatments,
-                   choose_animal.vaccination,
-                   choose_animal.wellness,
-                   choose_animal.food,
+                   choose_animal.water_treatments[0],
+                   choose_animal.food[0],
                    choose_animal.upload[0]]
+
 
             for item in lst:
                 if item:
                     print(item)
+                    print(type(item))
                     db.session.delete(item)
                     db.session.flush()
             db.session.commit()
+            flash("Животное успешно удалено", category="success")
             print("Животное удалено")
 
         except Exception as e:
             db.session.rollback()
-            print("Ошибка удаления в БД")
+            flash("Ошибка удаления из БД", category="error")
+            print("Ошибка удаления из БД")
             print(e)
 
     return render_template('deleting_animals.html', title="Удаление животных", list_of_animal=list_of_animal)
@@ -304,13 +292,17 @@ def delete_user():
         try:
             login = request.form['login']
             user = Employees.query.filter_by(login=login).first()
+            print(user)
+            print(user.pr)
             db.session.delete(user)
             db.session.delete(user.pr)
             db.session.commit()
+            flash("Пользователь успешно удалён", category="success")
             print("Пользователь успешно удалён")
 
         except Exception as e:
             db.session.rollback()
+            flash("Ошибка удаления из БД", category="error")
             print("Ошибка удаления из БД")
             print(e)
 
