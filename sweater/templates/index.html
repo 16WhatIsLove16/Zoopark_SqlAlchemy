@@ -1,5 +1,13 @@
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="/static/css/index.css" rel="stylesheet" />     
+    <title>{{layout}}</title>                                      
+</head>
 {% extends 'layout.html' %}
-
 {% block content %}
-<a href="{{ url_for('authorization') }}"> <img src="static/images/logo.png"/></a>
+<div class="content">
+    <rect>
+        <a class = "logo" href="{{ url_for('authorization') }}"> <img src="/static/images/index.png" style="width:500px; height:400;"/></a>
+    </rect>
+</div>
 {% endblock %}

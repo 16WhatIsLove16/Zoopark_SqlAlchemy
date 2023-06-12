@@ -1,9 +1,8 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h1>{{title}}</h1>
 {% for p in personal %}
-<form method="POST" enctype=multipart/form-data>
+<form action="" method="post" >
     <button><a href="{{ url_for('profile', nickname=personal[0].login) }}">Обновить страницу</a></button>
     <table>
         <tr>

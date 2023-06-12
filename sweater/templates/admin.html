@@ -1,23 +1,25 @@
+<head>
+    <link type="text/css" href="static/css/admin.css" rel="stylesheet" />      
+    <title>{{layout}}</title>                                       
+</head>
 {% extends 'layout.html' %}
-
 {% block content %}
-<h1>{{ title }}</h1>
-
-<form action="" method="post" class="form-new-animal" enctype=multipart/form-data>
-<button><a href="{{ url_for('admin') }}">Обновить страницу</a></button>
-</form>
-
-<div class="animal">
-    <p>Данные о животных</p>
-    <p><a href="{{ url_for('animals') }}">Список животных</a></p>
-    <p><a href="{{ url_for('new_animal') }}">Добавить</a></p>
-    <p><a href="{{ url_for('delete_animal') }}">Удалить</a></p>
+<div class="place">
+    <div class="animal">
+        <p class="sign">Данные о животных</p>
+        <div class="all_button">
+            <p><a class="button" style="padding:16px 31% 18px 31%" href="{{ url_for('animals') }}">Животные</a></p>
+            <p><a class="button" style="padding:16px 33% 18px 33%" href="{{ url_for('new_animal') }}">Добавить</a></p>
+            <p><a class="button" style="padding:16px 35% 18px 35%" href="{{ url_for('delete_animal') }}">Удалить</a></p>
+        </div>
+    </div>
+    <div class="users">
+        <p class="sign" style="margin-left: 20%;">Данные о пользователях</p>
+        <div class="all_button" style="margin-left: 18.3%">
+            <p><a class="button" style="padding:16px 25.5% 18px 25.5%" href="{{ url_for('profiles_employees') }}">Пользователи</a></p>
+            <p><a class="button" style="padding:16px 18% 18px 18%" href="{{ url_for('register') }}">Зарегистрировать</a></p>
+            <p><a class="button" style="padding:16px 35% 18px 35%" href="{{ url_for('delete_user') }}">Удалить</a></p>
+        </div>
+    </div>
 </div>
-<div class="users">
-    <p>Данные о пользователях</p>
-    <p><a href="{{ url_for('profiles_employees') }}">Список пользователей</a></p>
-    <p><a href="{{ url_for('register') }}">Зарегистрировать</a></p>
-    <p><a href="{{ url_for('delete_user') }}">Удалить</a></p>
-</div>
-
 {% endblock %}

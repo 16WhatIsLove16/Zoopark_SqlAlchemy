@@ -1,30 +1,32 @@
+<head>
+    <link type="text/css" href="static/css/register.css" rel="stylesheet" />
+    <title>{{layout}}</title>                                        <!--Написать правильное название-->
+</head>   
 {% extends 'layout.html' %}
 
 {% block content %}
-
+    
 {% for cat, msg in get_flashed_messages(True) %}
-<div class="flash {{ cat }}">{{ msg }}</div>
-{% endfor %}
-
-<h1>{{title}}</h1>
-<form action="" method="post" class="form-contact" enctype="multipart/form-data">
-<button><a href="{{ url_for('register') }}">Обновить страницу</a></button>
-<p><label>Фамилия: </label> <input type="text" name="surname" value="" required />
-<p><label>Имя: </label> <input type="text" name="name" value="" required />
-<p><label>Отчество: </label> <input type="text" name="patronymic" value="" required />
-<p><label>Возраст: </label> <input type="text" name="old" value="" required />
-<p><label>Дата рождения: </label> <input type="text" name="date_of_birth" value="" />
-<p><label>Контактный телефон: </label> <input type="text" name="telephone" value="" required />
-<p><label>Адрес проживания: </label> <input type="text" name="address" value="" required />
-<p><label>Дата принятия на работу: </label> <input type="text" name="date_of_admission" value="" />
-<p><label>Должность: </label> <input type="text" name="post" value="" required />
-<!--<p><label>Фото: </label> <input type="file" name="file" value=""  />-->
-<p><label>Город: </label> <input type="text" name="city" value="" required />
-<p><label>Email: </label> <input type="text" name="email" value="" required />
-<p><label>Логин: </label> <input type="text" name="login" value="" required />
-<p><label>Пароль: </label> <input type="password" name="password" value="" required />
-<p><label>Повтор пароля: </label> <input type="password" name="password2" value="" required />
-<p><label>URL: </label> <input type="text" name="url" value="" required />
-<p><input type="submit" value="Регистрация" />
-</form>
-{% endblock %}
+    <div class="flash {{ cat }}">{{ msg }}</div>
+    {% endfor %}
+    <div class="register_menu">
+        <form action="" method="post" class="form-contact">
+            <p> <input style="margin-top: 40px;" class="human_add_info" type="text" name="surname" value="" required placeholder="Введите фамилию" />
+            <p> <input class="human_add_info" type="text" name="name" value="" required placeholder="Введите имя" />
+            <p> <input class="human_add_info" type="text" name="patronymic" value="" required placeholder="Введите отчество" />
+            <p> <input class="human_add_info" type="text" name="old" value="" required placeholder="Введите возраст" />
+            <p> <input class="human_add_info" type="text" name="date_of_birth" value="" required placeholder="Введите дату рождения"/>
+            <p> <input class="human_add_info" type="text" name="telephone" value="" required placeholder="Введите контактный телефон" />
+            <p> <input class="human_add_info" type="text" name="address" value="" required placeholder="Введите адрес проживания" />
+            <p> <input class="human_add_info" type="text" name="date_of_admission" value="" required placeholder="Введите дату принятия на работу"/>
+            <p> <input class="human_add_info" type="text" name="post" value="" required placeholder="Введите должность" />
+            <p> <input class="human_add_info" type="text" name="city" value="" required placeholder="Введите город" />
+            <p> <input class="human_add_info" type="text" name="email" value="" required placeholder="Введите email" />
+            <p> <input class="human_add_info" type="text" name="login" value="" required placeholder="Введите логин" />
+            <p> <input class="human_add_info" type="password" name="password" value="" required placeholder="Введите пароль" />
+            <p> <input class="human_add_info" type="password" name="password2" value="" required placeholder="Введите пароль повторно" />
+            <p> <input class="human_add_info" type="text" name="url" value="" required placeholder="Введите URL" />
+            <p> <input class="reg_button_human" type="submit" value="Регистрация" />
+        </form>
+    </div>
+    {% endblock %}

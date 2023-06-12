@@ -1,0 +1,67 @@
+.place{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 100px;
+    left: 14%;
+    width: 70%;
+    height: 600px;
+}
+.animal{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 250px;
+    background-color: white;
+    border-radius: 49.0901px;
+    margin-bottom: 35px;
+    align-items: center;
+}
+.all_button{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 260px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 20%;
+    text-align: center;
+    gap: 24px;
+}
+.button{
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    background: #005E34;
+    text-align:center;
+    border-radius: 23px;
+}
+.sign{
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 20px;
+    margin-left: 23%;
+}
+.users{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 250px;
+    background-color: white;
+    border-radius: 49.0901px;
+    margin-bottom: 35px;
+    align-items: center;
+}
+.button:hover{
+    background-color: darkgreen;
+    }
+.button:active{
+    background-color: rgb(76, 110, 18);
+}
