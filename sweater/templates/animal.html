@@ -11,14 +11,34 @@
 {% endfor %}
 
 {% for animal in concrete_animal %}
-<div class="">
-    <p>Вид: {{ animal.type }}</p>
-    <p>Код: {{ animal.id }}</p>
-    <p>Статус: {{ animal.status }}</p>
-    <p>Дата поступления: {{ animal.date_of_receipt }}</p>
-    <p>Код вольера: {{ animal.aviary.id }}</p>
-    <p>Описание: {{ animal.description }}</p>
-</div>
+<form action="" method="post">
+    <table>
+        <tr>
+            <td>Вид:</td>
+            <td>{{ animal.type }}</td>
+        </tr>
+        <tr>
+            <td>Код:</td>
+            <td>{{ animal.id }}</td>
+        </tr>
+        <tr>
+            <td>Статус:</td>
+            <td>{{ animal.status }}</td>
+        </tr>
+        <tr>
+            <td>Дата поступления:</td>
+            <td>{{ animal.date_of_receipt }}</td>
+        </tr>
+        <tr>
+            <td>Код вольера:</td>
+            <td>{{ animal.aviary.id }}</td>
+        </tr>
+        <tr>
+            <td>Описание:</td>
+            <td>{{ animal.description }}</td>
+        </tr>
+    </table>
+</form>
 {% endfor %}
 
 {% for u in download %}
