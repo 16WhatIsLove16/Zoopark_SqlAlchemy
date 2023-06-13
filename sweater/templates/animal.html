@@ -13,23 +13,44 @@
 {% endfor %}
 
 {% for animal in concrete_animal %}
-<div class="animal">
-    <p>Вид: {{ animal.type }}</p>
-    <p>Код: {{ animal.id }}</p>
-    <p>Статус: {{ animal.status }}</p>
-    <p>Дата поступления: {{ animal.date_of_receipt }}</p>
-    <p>Код вольера: {{ animal.aviary.id }}</p>
-    <p>Описание: {{ animal.description }}</p>
+<form action="" method="post">
+    <table>
+        <tr>
+            <td>Вид:</td>
+            <td>{{ animal.type }}</td>
+        </tr>
+        <tr>
+            <td>Код:</td>
+            <td>{{ animal.id }}</td>
+        </tr>
+        <tr>
+            <td>Статус:</td>
+            <td>{{ animal.status }}</td>
+        </tr>
+        <tr>
+            <td>Дата поступления:</td>
+            <td>{{ animal.date_of_receipt }}</td>
+        </tr>
+        <tr>
+            <td>Код вольера:</td>
+            <td>{{ animal.aviary.id }}</td>
+        </tr>
+        <tr>
+            <td>Описание:</td>
 
+        </tr>
+        <tr>
+            <td>{{ animal.description }}</td>
+        </tr>
+    </table>
+</form>
 {% endfor %}
 
 {% for u in download %}
     {% if url == 'staff' %}
     <p><a class="add_sing" href="{{ url_for('staff', alias=title) }}">Заполнить отчёт</a></p>
     {% elif url == 'admin' %}
-        {% for message in messages %}
-            <div>{{ message.animal_id }}  {{ message.text }}</div>
-        {% endfor %}
+
     <p><a class="staff_sing" href="{{ url_for('staff', alias=title) }}">Заполнить отчёт персонала</a></p>
     <p><a class="medic_sing" href="{{ url_for('download', upload_id=u.animal_id) }}">Заполнить отчёт медика</a></p>
     {% elif url == 'medic' %}
@@ -43,10 +64,7 @@
         <p> <input class="id_recommend" type="text" name="delete" value="" required placeholder="Введите id рекомендации, которую нужно удалить" /></p>
         <p><input type="submit" value="Добавить" class="my_button"/></p>
     </form>
-    <d><c>Рекомендации</c>
-        {% for message in messages %}
-        <div class="rec">{{ message.id }}  {{ message.text }}</div>
-    {% endfor %}
+    <div class="empty"></div>
 </d>
     
     {% else %}

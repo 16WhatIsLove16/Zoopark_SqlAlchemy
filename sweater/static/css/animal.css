@@ -1,22 +1,10 @@
-h1{
+/*информация о животном + отчеты*/
+table{
     position: absolute;
-    width: 800px;
-    height: 480px;
+    width: 850px;
+    height: 500px;
     left: 350px;
-    top: 77px;
-    font-family: 'Karla';
-    font-weight: 700;
-    text-align:center;
-    font-size: 40px;
-    color: #000000;
-}
-
-.animal{
-    position: absolute;
-    width: 800px;
-    height: 480px;
-    left: 350px;
-    top: 197px;
+    top: 130px;
     background: #F6FBF9;
     border-radius: 49.0901px;
     font-family: 'Karla';
@@ -25,15 +13,16 @@ h1{
     font-size: 20px;
     text-align:left;
     color: #000000;
-    padding-left: 80px;
+    padding-left: 40px;
     padding-top: 30px;
+    padding-bottom: 120px;
 }
 
 .download_sing{
     position: absolute;
     margin-bottom: auto;
     left:650px;
-    top: 742px;
+    top: 653px;
     color: #FFFFFF;
     text-decoration: none;
     padding:10px 50px;
@@ -46,10 +35,10 @@ h1{
 }
 .form-animal{
     position: absolute;
-    width: 800px;
+    width: 850px;
     height: 320px;
     left: 350px;
-    top: 830px;
+    top: 733px;
     background: #F6FBF9;
     border-radius: 49.0901px;
     padding-left: 40px;
@@ -71,7 +60,7 @@ input[type=file] {
     font-family: 'Karla';
     font-style: normal;
     font-weight: 400;
-    color: white;
+    color: black;
     font-size: 20px;
     padding: 5px;
     background: #fff;
@@ -131,10 +120,10 @@ d{
     position: absolute;
     padding: 30px 30px;
     margin-bottom: 30px ;
-    width: 780px;
+    width: 830px;
     height: 300px;
     left: 350px;
-    top:1215px;
+    top:1140px;
     background: #F6FBF9;
     border-radius: 49.0901px;
     
@@ -150,10 +139,13 @@ c{
     background: #005E34;
     font-size: 20px;
     border-radius: 23px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 .staff_sing{
-    left:350px;
-    top: 50px;
+    position: absolute;
+    top: 560px;
+    left: 450px;
     color: #FFFFFF;
     text-decoration: none;
     padding:10px 30px;
@@ -168,13 +160,14 @@ c{
     border-radius: 23px;
 }
 .medic_sing{
-    left:450px;
-    top: 50px;
+    position: absolute;
+    top: 560px;
+    left: 130px;
     color: #FFFFFF;
     text-decoration: none;
     padding:10px 30px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 100px;
     margin-left:350px;
     font-family: 'Karla';
     font-style: normal;
@@ -184,11 +177,12 @@ c{
     border-radius: 23px;
 }
 .add_sing{
-    left:450px;
-    top: 50px;
+    position: absolute;
+    top: 560px;
+    left:328px;
     color: #FFFFFF;
     text-decoration: none;
-    padding:10px 30px;
+    padding:11px 30px;
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left:350px;
@@ -197,15 +191,35 @@ c{
     font-weight: 700;
     background: #005E34;
     text-align:center;
-    border-radius: 23px;
+    border-radius: 20px;
 }
-
+f{
+    position: absolute;
+    top:90px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align:left;
+    color: #000000;
+}
+rect{
+    position: absolute;
+    width: 800px;
+    height: 220px;
+    left: 350px;
+    top: 1400px;
+    background: transparent;
+}
 .download_sing:hover,  .ddd_sign:hover, .staff_sing:hover, .medic_sing:hover, .add_sing:hover {
     background-color: darkgreen;
     }
 .download_sing:active, .ddd_sign:active, .staff_sing:active, .medic_sing:active, .add_sing:active {
     background-color: rgb(76, 110, 18);
 }
-.rec{
-    
+.empty{
+    position: relative;
+    height: 30px;
+    width: 2px;
+    top: 1100px;
 }

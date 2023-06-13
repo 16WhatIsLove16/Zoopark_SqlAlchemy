@@ -2,9 +2,9 @@
 table{
     position: absolute;
     width: 700px;
-    height: 430px;
-    left: 420px;
-    top: 190px;
+    height: 380px;
+    left: 450px;
+    top: 197px;
     background: #F6FBF9;
     border-radius: 49.0901px;
     font-family: 'Karla';
@@ -13,55 +13,30 @@ table{
     font-size: 20px;
     text-align:left;
     color: #000000;
-    padding-left: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .post_sign{
-    position: absolute;
-    top: 350px;
-    left:410px;
     color: #FFFFFF;
     text-decoration: none;
-    padding:15px 30px;
+    padding:10px 30px;
     font-family: 'Karla';
     font-style: normal;
     font-weight: 700;
     background: #005E34;
     border-radius: 23px;
-}
-.empty{
-    position: relative;
-    color: #FFFFFF;
-    text-decoration: none;
-    padding:15px 1px;
-    font-family: 'Karla';
-    font-style: normal;
-    font-weight: 700;
-    background: white;
-    border-radius: 23px;
-    margin-bottom: 30px;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
 }
 .animal_sign{
-    top: 350px;
-    left:90px;
-    position: absolute;
     color: #FFFFFF;
     text-decoration: none;
-    padding:15px 30px;
+    padding:10px 10px;
     font-family: 'Karla';
     font-style: normal;
     font-weight: 700;
     background: #005E34;
     border-radius: 23px;
-    margin-bottom: 30px;
 }
 .post_sign:hover, .animal_sign:hover {
     background-color: darkgreen;
