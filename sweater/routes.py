@@ -6,64 +6,59 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from sweater.models import Employees, Profile, Message, Aviary, Cleaning,\
     Animals, Medical_card, Water_treatments, \
     Food, Upload
-from sweater import app, db, manager
+from sweater import app, db
 
 
-"""Один из обработчиков для авторизации пользователя"""
-@manager.user_loader
-def load_user(user_id):
-    return Employees.query.get(user_id)
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'docx', 'png', 'jpg', 'jpeg', 'gif'}
 
-
-"""Обработчик первой страницы"""
 @app.route("/")
 def index():
     return render_template("index.html", title="Главная")
 
 
-"""Обработчик страницы авторизации"""
 @app.route("/authorization", methods=['GET', 'POST'])
 def authorization():
     login = request.form.get('login')
     password = request.form.get('password')
 
     if login and password:
-        # Проверка ввода логина и пароля
         user = Employees.query.filter_by(login=login).first()
         if user and check_password_hash(user.password, password):
-            # Проверка корректности данных
             login_user(user)
             return redirect(url_for('profile', nickname=login))
         else:
             flash("Данные неверны", category="error")
+    else:
+        pass
     return render_template("authorization.html", title="Авторизация")
 
 
-"""Обработчик выхода из профиля"""
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required
-# Страница доступна только авторизованным пользователям
 def logout():
     logout_user()
     return redirect(url_for('index'))
 
 
-"""Обработчик профиля"""
+@app.route("/enter")
+def enter():
+    return redirect(url_for('profile'))
+
+
 @app.route("/profile/<nickname>", methods=['GET', 'POST'])
 @login_required
 def profile(nickname):
     personal = Employees.query.filter_by(login=nickname).all()
+    print(personal)
     return render_template("profile.html", title="Профиль", personal=personal)
 
 
-"""Обработчик страницы администратора"""
 @app.route("/admin", methods=['GET', 'POST'])
 @login_required
 def admin():
     return render_template('admin.html', title="Админ")
 
 
-"""Обработчик страницы обслуживающего персонала"""
 @app.route("/staff/<alias>", methods=['GET', 'POST'])
 @login_required
 def staff(alias):
@@ -97,7 +92,6 @@ def staff(alias):
 
             flash('Отчёт успешно загружен', category='success')
             print("Информация успешно добавлена")
-
         except Exception as e:
             db.session.rollback()
             flash('Ошибка добавления в базу данных')
@@ -109,8 +103,6 @@ def staff(alias):
                            list_food=list_food[-2:], list_water=list_water[-2:],
                            animal=animal[0])
 
-
-"""Обработчик страницы со списком животных"""
 @app.route("/animals", methods=['GET', 'POST'])
 @login_required
 def animals():
@@ -120,7 +112,6 @@ def animals():
     return render_template('animals.html', title="Список животных", list_of_animal=list_of_animal)
 
 
-"""Обработчик страницы с конкретным животным"""
 @app.route("/animal/<alias>", methods=['GET', 'POST'])
 @login_required
 def animal(alias):
@@ -133,10 +124,9 @@ def animal(alias):
     if request.method == 'POST':
         try:
             file = request.files['download_file']
-            u = Upload(filename=file.filename, data=file.read(), animal_id=concrete_animal[0].id)
 
+            u = Upload(filename=file.filename, data=file.read(), animal_id=concrete_animal[0].id)
             if u.filename != '':
-                # Перед загрузкой нового файла удаляется предыдущий
                 Upload.query.filter_by(animal_id=concrete_animal[0].id).delete()
                 db.session.commit()
 
@@ -144,7 +134,6 @@ def animal(alias):
                 db.session.commit()
 
             m = Message(text=request.form['text'], animal_id=concrete_animal[0].id)
-            # Добавление рекомендаций
             if m.text != '':
                 db.session.add(m)
                 db.session.commit()
@@ -152,7 +141,6 @@ def animal(alias):
             delete = request.form['delete']
             del_mes = Message.query.filter_by(id=delete).first()
             if del_mes:
-                # Удаление рекомендаций
                 db.session.delete(del_mes)
                 db.session.commit()
 
@@ -172,7 +160,6 @@ def animal(alias):
                            messages=messages)
 
 
-"""Обработчик страницы регистрации"""
 @app.route('/register', methods=['GET', 'POST'])
 @login_required
 def register():
@@ -201,14 +188,13 @@ def register():
 
         except Exception as e:
             flash("Ошибка добавления в БД", category="error")
-            print("Ошибка добавления в БД")
             db.session.rollback()
+            print("Ошибка добавления в БД")
             print(e)
 
     return render_template('register.html')
 
 
-"""Обработчик страницы с добавлением нового животного"""
 @app.route('/new_animal', methods=['GET', 'POST'])
 @login_required
 def new_animal():
@@ -218,11 +204,13 @@ def new_animal():
                          type=request.form['type'],
                          description=request.form['description'],
                          status=request.form['status'])
+
             db.session.add(an)
             db.session.flush()
 
             av = Aviary(size=request.form['size'], type=request.form['type'],
                         features=request.form['features'], animal_id=an.id)
+
             db.session.add(av)
             db.session.flush()
 
@@ -233,13 +221,13 @@ def new_animal():
                               health_status=request.form['health_status'],
                               medical_history=request.form['medical_history'],
                               animal_id=an.id)
+
             db.session.add(mc)
             db.session.flush()
 
             file = request.files['upload_file']
 
             u = Upload(filename=file.filename, data=file.read(), animal_id=an.id)
-            # Загрузка медицинской карты
             db.session.add(u)
             db.session.commit()
 
@@ -254,7 +242,6 @@ def new_animal():
     return render_template('new_animal.html', title='Добавление новых животных')
 
 
-"""Обработчик загрузки файлов"""
 @app.route('/download/<upload_id>')
 @login_required
 def download(upload_id):
@@ -262,7 +249,6 @@ def download(upload_id):
     return send_file(BytesIO(upload.data), download_name=upload.filename, as_attachment=True)
 
 
-"""Обработчик удаления животных"""
 @app.route('/delete_animal', methods=['GET', 'POST'])
 @login_required
 def delete_animal():
@@ -271,14 +257,18 @@ def delete_animal():
         try:
             animal = request.form['animal']
             choose_animal = Animals.query.filter_by(type=animal).first()
+            print(choose_animal.water_treatments)
             lst = [choose_animal, choose_animal.aviary,
                    choose_animal.medical_card,
                    choose_animal.water_treatments[0],
                    choose_animal.food[0],
                    choose_animal.upload[0]]
 
+
             for item in lst:
                 if item:
+                    print(item)
+                    print(type(item))
                     db.session.delete(item)
                     db.session.flush()
             db.session.commit()
@@ -294,7 +284,6 @@ def delete_animal():
     return render_template('deleting_animals.html', title="Удаление животных", list_of_animal=list_of_animal)
 
 
-"""Обработчик удаления пользователей"""
 @app.route('/delete_user', methods=['GET', 'POST'])
 @login_required
 def delete_user():
@@ -303,6 +292,8 @@ def delete_user():
         try:
             login = request.form['login']
             user = Employees.query.filter_by(login=login).first()
+            print(user)
+            print(user.pr)
             db.session.delete(user)
             db.session.delete(user.pr)
             db.session.commit()
@@ -318,7 +309,6 @@ def delete_user():
     return render_template('users.html', title="Удаление пользователей", list_of_users=list_of_users)
 
 
-"""Обработчик страницы со списком работников"""
 @app.route('/profiles_employees', methods=['POST', 'GET'])
 def profiles_employees():
     list_of_users = Employees.query.all()

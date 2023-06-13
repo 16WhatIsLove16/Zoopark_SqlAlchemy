@@ -6,11 +6,8 @@
 <button><a href="{{ url_for('animals') }}">Обновить страницу</a></button>
 </form>
 {% for an in list_of_animal %}
-<table>
-    <tr>
-        <a href="{{ url_for('animal', alias=an.type) }}">{{ an.type }}</a>
-    </tr>
-</table>
+<ul>
+<a href="{{ url_for('animal', alias=an.type) }}">{{ an.type }}</a>
+</ul>
 {% endfor %}
-
 {% endblock %}
