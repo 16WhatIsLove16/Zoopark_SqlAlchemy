@@ -1,0 +1,45 @@
+.register_menu{
+    position: relative;
+    top: 80px;
+    left: 400px;
+    width: 700px;
+    height: 960px;
+    margin-bottom: 130px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 49.0901px;
+}
+.human_add_info{
+    margin-top: 1px;
+    margin-left: 15%;
+    width: 70%;
+    height: 35px;
+    background-color: rgb(218, 218, 218);
+    border-radius: 15px;
+    border-color: rgb(182, 182, 182);
+    border-style: none;
+    padding-left: 20px;
+}
+.reg_button_human{
+    width: 30%;
+    height: 40px;
+    margin-top: 2.6%;
+    margin-left: 58%;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
+    background: #005E34;
+    border-color: #005E34;
+    border-style: none;
+    text-align:center;
+    border-radius: 23px;
+}
+.reg_button_human:hover{
+    background-color: darkgreen;
+    }
+.reg_button_human:active{
+    background-color: rgb(76, 110, 18);
+}

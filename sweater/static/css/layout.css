@@ -4,8 +4,10 @@ body{
 .menu{
     position: fixed;
     display: flex;
-    flex-direction: row;
+    flex-direction: row;    
+    z-index: 1;
     margin-left: -3%;
+    margin-top: -0.6%;
     height: 10%;
     width: 110%;
     background-color: #5A8B47;
@@ -22,34 +24,61 @@ body{
     width: 600px;
     font-family: 'Karla';
     font-style: normal;
-    font-weight: 400;
-    font-size: 100;
+    font-weight: 400px;
+    font-size: 17px;
     line-height: 20px;
+    color: #FFFFFF;
 }
 .post{
     font-family: 'Karla';
     font-style: normal;
+    width: 115px;
     font-weight: 400;
-    font-size: 100;
+    font-size: 17px;
     line-height: 20px;
+    margin-top: -0.5%;
+    text-decoration: none;
+    color: rgb(0, 204, 204);
 }
-.logout{
-    height: 45px;
-    width: 180px;
-    margin-top: 12px;
-    margin-left:540px;
-    background: #005E34;
-    border-radius: 23px;
+.logout_sign{
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:18px 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left:15px;
     font-family: 'Karla';
     font-style: normal;
     font-weight: 700;
-    text-align: center;
-    color: #FFFFFF;
+    background: #005E34;
+    text-align:center;
+    border-radius: 23px;
 }
+.search_sign{
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:18px 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left:540px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    background: #005E34;
+    text-align:center;
+    border-radius: 23px;
+}
+
 .main_logo{
     position: fixed;
     height: 100px;
     width: 135px;
-    top: 610px;
-    left: 1200px;
+    top: 630px;
+    left: 1360px;
+}
+.update_sign:hover, .search_sign:hover, .logout_sign:hover {
+    background-color: darkgreen;
+    }
+.update_sign:active, .search_sign:active, .logout_sign:hover {
+    background-color: rgb(76, 110, 18);
 }
