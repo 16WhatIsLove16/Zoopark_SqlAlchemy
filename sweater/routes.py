@@ -208,7 +208,7 @@ def new_animal():
             db.session.add(an)
             db.session.flush()
 
-            av = Aviary(size=request.form['size'], type=request.form['type'],
+            av = Aviary(size=request.form['size'], type=request.form['type_aviary'],
                         features=request.form['features'], animal_id=an.id)
 
             db.session.add(av)
@@ -219,7 +219,6 @@ def new_animal():
                               height=request.form['height'],
                               special_signs=request.form['special_signs'],
                               health_status=request.form['health_status'],
-                              medical_history=request.form['medical_history'],
                               animal_id=an.id)
 
             db.session.add(mc)

@@ -1,6 +1,12 @@
 <head>
+<<<<<<< Updated upstream
     <link type="text/css" href="/static/css/profile.css" rel="stylesheet" />      
     <title>{{layout}}</title>                                       
+=======
+    <meta charset="UTF-8">
+    <link type="text/css" href="/static/css/profile.css" rel="stylesheet" />      <!--Написать правильные ссылки-->
+    <title>{{layout}}</title>                                        <!--Написать правильное название-->
+>>>>>>> Stashed changes
 </head>
 {% extends 'layout.html' %}
 
@@ -26,6 +32,12 @@
             <td>{{ p.pr.telephone }}</td>
         </tr>
         <tr>
+<<<<<<< Updated upstream
+=======
+            <td><a class="empty">Список животных</a></td>
+        </tr>
+        <tr>
+>>>>>>> Stashed changes
             <td><a class="animal_sign" href="{{ url_for('animals') }}">Список животных</a></td>
         {% if p.pr.post == 'Администратор' %}
             <td><a class="post_sign" href="{{ p.url }}"> {{ p.pr.post }}</a></td>

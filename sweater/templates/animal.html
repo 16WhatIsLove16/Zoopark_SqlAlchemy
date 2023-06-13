@@ -13,6 +13,7 @@
 {% endfor %}
 
 {% for animal in concrete_animal %}
+<<<<<<< Updated upstream
 <form action="" method="post">
     <table>
         <tr>
@@ -44,13 +45,29 @@
         </tr>
     </table>
 </form>
+=======
+<div class="animal">
+    <p>Вид: {{ animal.type }}</p>
+    <p>Код: {{ animal.id }}</p>
+    <p>Статус: {{ animal.status }}</p>
+    <p>Дата поступления: {{ animal.date_of_receipt }}</p>
+    <p>Код вольера: {{ animal.aviary.id }}</p>
+    <p>Описание: {{ animal.description }}</p>
+
+>>>>>>> Stashed changes
 {% endfor %}
 
 {% for u in download %}
     {% if url == 'staff' %}
     <p><a class="add_sing" href="{{ url_for('staff', alias=title) }}">Заполнить отчёт</a></p>
     {% elif url == 'admin' %}
+<<<<<<< Updated upstream
 
+=======
+        {% for message in messages %}
+            <div>{{ message.animal_id }}  {{ message.text }}</div>
+        {% endfor %}
+>>>>>>> Stashed changes
     <p><a class="staff_sing" href="{{ url_for('staff', alias=title) }}">Заполнить отчёт персонала</a></p>
     <p><a class="medic_sing" href="{{ url_for('download', upload_id=u.animal_id) }}">Заполнить отчёт медика</a></p>
     {% elif url == 'medic' %}
@@ -64,7 +81,14 @@
         <p> <input class="id_recommend" type="text" name="delete" value="" required placeholder="Введите id рекомендации, которую нужно удалить" /></p>
         <p><input type="submit" value="Добавить" class="my_button"/></p>
     </form>
+<<<<<<< Updated upstream
     <div class="empty"></div>
+=======
+    <d><c>Рекомендации</c>
+        {% for message in messages %}
+        <div class="rec">{{ message.id }}  {{ message.text }}</div>
+    {% endfor %}
+>>>>>>> Stashed changes
 </d>
     
     {% else %}
