@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Zoopark_SqlAlchemy.iml" filepath="$PROJECT_DIR$/.idea/Zoopark_SqlAlchemy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../temp/.idea/temp.iml" filepath="$PROJECT_DIR$/../temp/.idea/temp.iml" />
     </modules>
   </component>
 </project>

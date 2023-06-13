@@ -1,6 +1,8 @@
+#В данном файле создаются таблицы для БД и прописываются отношения между ними
+
 from flask_login import UserMixin
 
-from sweater import db, manager
+from sweater import db
 
 class Employees(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -71,8 +73,6 @@ class Animals(db.Model):
     aviary = db.relationship('Aviary', backref='animals', uselist=False)
     medical_card = db.relationship('Medical_card', backref='animals', uselist=False)
     water_treatments = db.relationship('Water_treatments', backref='animals')
-    # vaccination = db.relationship('Vaccination', backref='animals')
-    # wellness = db.relationship('Wellness_activities', backref='animals')
     food = db.relationship('Food', backref='animals')
     upload = db.relationship('Upload', backref='animals')
     message = db.relationship('Message', backref='animals')
@@ -89,7 +89,6 @@ class Medical_card(db.Model):
 
     animal_id = db.Column(db.Integer, db.ForeignKey('animals.id'))
 
-    # vaccination = db.relationship('Vaccination', backref='medical_card')
     food = db.relationship('Food', backref='medical_card')
 
 
@@ -99,25 +98,6 @@ class Water_treatments(db.Model):
     time_water = db.Column(db.Text)
 
     animal_id = db.Column(db.Integer, db.ForeignKey('animals.id'))
-
-
-# class Vaccination(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     name_vaccination = db.Column(db.Text, nullable=True)
-#     date_vaccination = db.Column(db.Text)
-#     time = db.Column(db.Text)
-#
-#     animal_id = db.Column(db.Integer, db.ForeignKey('animals.id'))
-#     vac = db.Column(db.Integer, db.ForeignKey('medical_card.id'))
-
-
-# class Wellness_activities(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     name_activities = db.Column(db.Text, nullable=True)
-#     data = db.Column(db.Text)
-#     time = db.Column(db.Text)
-#
-#     animal_id = db.Column(db.Integer, db.ForeignKey('animals.id'))
 
 
 class Food(db.Model):
@@ -142,8 +122,3 @@ class Message(db.Model):
     text = db.Column(db.String(1024))
 
     animal_id = db.Column(db.Integer, db.ForeignKey('animals.id'))
-
-
-@manager.user_loader
-def load_user(user_id):
-    return Employees.query.get(user_id)
