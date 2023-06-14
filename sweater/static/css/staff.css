@@ -1,0 +1,223 @@
+/*отчет персонала*/
+c{
+    position: absolute;
+    top: 20px;
+    left: -310px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:15px 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left:350px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    background: #005E34;
+    font-size: 24px;
+    text-align:left;
+    border-radius: 23px; 
+}
+
+.cleaning{
+    position: absolute;
+    width: 850px;
+    height: 360px;
+    left: 350px;
+    top: 130px;
+    background: #F6FBF9;
+    border-radius: 49.0901px;
+}
+
+.data_clean{
+    position: absolute;
+    top: 110px;
+    margin-top: 10px;
+    margin-left: 40px;
+    width: 80%;
+    height: 35px;
+    color: #000000;
+    background-color: rgb(218, 218, 218);
+    border-radius: 15px;
+    border-color: rgb(182, 182, 182);
+    border-style: none;
+    padding-left: 20px;
+}
+.time_clean{
+    position: absolute;
+    top: 190px;
+    margin-top: 10px;
+    margin-left: 40px;
+    width: 80%;
+    height: 35px;
+    color: #000000;
+    background-color: rgb(218, 218, 218);
+    border-radius: 15px;
+    border-color: rgb(182, 182, 182);
+    border-style: none;
+    padding-left: 20px;
+}
+.food{
+    position: absolute;
+    width: 850px;
+    height: 360px;
+    left: 350px;
+    top: 530px;
+    background: #F6FBF9;
+    border-radius: 49.0901px;
+}
+
+.data_food{
+    position: absolute;
+    top: 110px;
+    margin-top: 10px;
+    margin-left: 40px;
+    width: 80%;
+    height: 35px;
+    color: #000000;
+    background-color: rgb(218, 218, 218);
+    border-radius: 15px;
+    border-color: rgb(182, 182, 182);
+    border-style: none;
+    padding-left: 20px;
+}
+.time_food{
+    position: absolute;
+    top: 190px;
+    margin-top: 10px;
+    margin-left: 40px;
+    width: 80%;
+    height: 35px;
+    color: #000000;
+    background-color: rgb(218, 218, 218);
+    border-radius: 15px;
+    border-color: rgb(182, 182, 182);
+    border-style: none;
+    padding-left: 20px;
+}
+.water_treatments{
+    position: absolute;
+    width: 850px;
+    height: 360px;
+    left: 350px;
+    top: 930px;
+    background: #F6FBF9;
+    border-radius: 49.0901px;
+}
+.data_wat{
+    position: absolute;
+    top: 110px;
+    margin-top: 10px;
+    margin-left: 40px;
+    width: 80%;
+    height: 35px;
+    color: #000000;
+    background-color: rgb(218, 218, 218);
+    border-radius: 15px;
+    border-color: rgb(182, 182, 182);
+    border-style: none;
+    padding-left: 20px;
+}
+.time_wat{
+    position: absolute;
+    top: 190px;
+    margin-top: 10px;
+    margin-left: 40px;
+    width: 80%;
+    height: 35px;
+    color: #000000;
+    background-color: rgb(218, 218, 218);
+    border-radius: 15px;
+    border-color: rgb(182, 182, 182);
+    border-style: none;
+    padding-left: 20px;
+}
+f{
+    position: absolute;
+    width: 800px;
+    height: 220px;
+    left: 350px;
+    top: 2030px;
+    background: transparent;
+}
+
+input{
+    margin-top: 280px;
+    margin-left: 550px;
+    margin-right: 10px;
+    border: none;
+    background: #005E34;
+    padding: 10px 40px;
+    border-radius: 23px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+label{
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+}
+rect{
+    position: absolute;
+    margin-bottom: 30px;
+    width: 810px;
+    height: 320px;
+    left: 350px;
+    top: 1330px;
+    background: #F6FBF9;
+    border-radius: 49.0901px;
+    padding-left: 40px;
+    padding-top: 30px;
+}
+rect1{
+    position: absolute;
+    margin-bottom: 30px;
+    width: 810px;
+    height: 450px;
+    left: 350px;
+    top: 1720px;
+    background: #F6FBF9;
+    border-radius: 49.0901px;
+    padding-left: 40px;
+    padding-top: 30px;
+}
+n{
+    position: absolute;
+    top: 120px;
+    left: 40px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+
+}
+
+.add_sign{
+    position:fixed;
+    z-index: 3;
+    top: -2px;
+    left: 620px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:18px 46.5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left:350px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    background: #005E34;
+    border-radius: 23px; 
+}
+.add_sign:hover{
+    background-color: darkgreen;
+    }
+.add_sign:active{
+    background-color: rgb(76, 110, 18);
+}

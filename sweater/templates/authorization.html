@@ -1,25 +1,28 @@
-{% extends 'layout.html' %}
-
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="/static/css/autorization.css" rel="stylesheet" />      <!--Написать правильные ссылки-->
+    <title>{{layout}}</title>                                        <!--Написать правильное название-->
+</head>
 {% block content %}
-<h1>Авторизация должна быть тут</h1>
-
 {% for cat, msg in get_flashed_messages(True) %}
 <div class="flash {{ cat }}">{{ msg }}</div>
 {% endfor %}
-
-<form method="POST">
-    <table>
-        <tr>
-            <td>Login</td>
-            <td><input type="text" name="login"></td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td><input type="password" name="password"></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Login"></td>
-        </tr>
-    </table>
-</form>
+<body>
+    <form method="POST">
+        <table>
+            <tr>
+                <td><div class="enter">Вход</div></td>
+            </tr>
+            <tr>
+                <td><input class="log_inp" type="text" name="login" required placeholder="Логин"></td>
+            </tr>
+            <tr>
+                <td><input class="pass_inp" type="password" name="password" required placeholder="Пароль"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="submit" value="Войти"></td>
+            </tr>
+        </table>
+    </form>
+</body>
 {% endblock %}

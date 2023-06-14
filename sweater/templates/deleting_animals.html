@@ -1,17 +1,26 @@
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="/static/css/deleting_animals.css" rel="stylesheet" />      <!--Написать правильные ссылки-->
+    <title>{{layout}}</title>                                        <!--Написать правильное название-->
+</head>
+<body>
 {% extends 'layout.html' %}
+
 {% block content %}
-
-{% for cat, msg in get_flashed_messages(True) %}
-<div class="flash {{ cat }}">{{ msg }}</div>
-{% endfor %}
-
-<h1>{{title}}</h1>
+<h1>Удалить животное</h1>
 <form action="" method="post" class="delete_animals" enctype=multipart/form-data>
-<button><a href="{{ url_for('delete_animal') }}">Обновить страницу</a></button>
-{% for an in list_of_animal %}
-    <p><label>{{ an.type }}</label></p>
-{% endfor %}
-<p><label>Введите вид животного, которое нужно удалить: </label><input type="text" name="animal" value="" />
-<p><input type="submit" value="Удалить" />
+    <a class="add_sign" href="{{ url_for('delete_animal') }}">Обновить</a>
+
+    <rect>
+        <p> <input class="typ_delet" type="text" name="animal" value="" required placeholder="Введите вид животного, которое нужно удалить" />
+        <input class="del" type="submit" value="Удалить" />
+            {% for an in list_of_animal %}
+        <p><label style="margin-left:55px">{{ an.type }}</label></p>
+        {% endfor %}
+    </rect>
 </form>
+
 {% endblock %}
+
+
+</body>

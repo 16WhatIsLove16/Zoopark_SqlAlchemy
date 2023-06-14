@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    top: 100px;
+    top: 120px;
     left: 14%;
     width: 70%;
     height: 600px;
@@ -14,7 +14,7 @@
     height: 250px;
     background-color: white;
     border-radius: 49.0901px;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
     align-items: center;
 }
 .all_button{
@@ -23,7 +23,7 @@
     height: 90%;
     width: 260px;
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
     margin-left: 20%;
     text-align: center;
     gap: 24px;

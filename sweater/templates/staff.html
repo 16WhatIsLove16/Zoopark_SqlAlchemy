@@ -1,48 +1,57 @@
-{% extends 'layout.html' %}
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="/static/css/staff.css" rel="stylesheet" />      <!--Написать правильные ссылки-->
+    <title>{{layout}}</title>                                        <!--Написать правильное название-->
+</head>
+<body>
+    {% extends 'layout.html' %}
+    {% block content %}
 
-{% block content %}
-
-{% for cat, msg in get_flashed_messages(True) %}
-<div class="flash {{ cat }}">{{ msg }}</div>
-{% endfor %}
-
-<h1>{{title}}</h1>
-<form action="" method="post" class="form-staff">
-<button><a href="{{ url_for('staff', alias=animal.type) }}">Обновить страницу</a></button>
+<form action="" method="post" class="form-staff" enctype=multipart/form-data>
+    <a class="add_sign" href="{{ url_for('staff', alias=animal.type) }}">Обновить</a>
+    
 <div class="cleaning">
-    <p>Уборка вольера</p>
-    <input type="text" name="date_clean" placeholder="Введите дату">
-    <input type="text" name="time_clean" placeholder="Введите время">
+    <c>Уборка вольера</c>
+    <input class="data_clean" type="text" name="date_clean" placeholder="Введите дату">
+    <input class="time_clean" type="text" name="time_clean" placeholder="Введите время">
+    <p><input type="submit" value="Отправить данные"></p>
 </div>
-<p><input type="submit" value="Отправить данные"></p>
 <div class="food">
-    <p>Питание</p>
-    <input type="text" name="date_food" placeholder="Введите дату">
-    <input type="text" name="time_food" placeholder="Введите время">
+    <c>Питание</c>
+    <input class="data_food" type="text" name="date_food" placeholder="Введите дату">
+    <input class="time_food" type="text" name="time_food" placeholder="Введите время">
+    <p><input type="submit" value="Отправить данные"></p>
 </div>
-<p><input type="submit" value="Отправить данные"></p>
 <div class="water_treatments">
-    <p>Водные процедуры</p>
-    <input type="text" name="date_of_procedures" placeholder="Введите дату">
-    <input type="text" name="time_water" placeholder="Введите время">
+    <c>Водные процедуры</c>
+    <input class="data_wat" type="text" name="date_of_procedures" placeholder="Введите дату">
+    <input class="time_wat" type="text" name="time_water" placeholder="Введите время">
+    <p><input type="submit" value="Отправить данные"></p>
 </div>
-<p><input type="submit" value="Отправить данные"></p>
+<rect>
+    <c>Рекомендации</c>
+    <n>{% for message in messages %}
+    <div class="message">{{ message.animal_id }}  {{ message.text }}</div>
+    {% endfor %}
+    </n>
+</rect>
+<rect1>
+    <c>История</c>
+    <n>
+    {% for clean in list_cleaning %}
+    <div class="clean">Вольер {{ animal.type[:-1] }}ы убран {{ clean.date_clean }} в {{ clean.time_clean }}</div>
+    {% endfor %}
+    {% for food in list_food %}
+    <div class="fod">{{ animal.type }} покормлена {{ food.date_food }} в {{ food.time_food }}</div>
+    {% endfor %}
+
+    {% for water in list_water %}
+    <div class="water">{{ animal.type }} намыта {{ water.date_of_procedures }} в {{ water.time_water }}</div>
+    {% endfor %}
+
+    </n>
+</rect1>
+<f></f>
 </form>
-
-{% for message in messages %}
-<div class="message">{{ message.animal_id }}  {{ message.text }}</div>
-{% endfor %}
-
-{% for clean in list_cleaning %}
-<div class="clean">Вольер {{ animal.type[:-1] }}ы убран {{ clean.date_clean }} в {{ clean.time_clean }}</div>
-{% endfor %}
-
-{% for food in list_food %}
-<div class="food">{{ animal.type }} покормлена {{ food.date_food }} в {{ food.time_food }} </div>
-{% endfor %}
-
-{% for water in list_water %}
-<div class="water">{{ animal.type }} намыта {{ water.date_of_procedures }} в {{ water.time_water }}</div>
-{% endfor %}
-
+</body>
 {% endblock %}

@@ -1,0 +1,309 @@
+<<<<<<< Updated upstream
+/*информация о животном + отчеты*/
+table{
+    position: absolute;
+    width: 850px;
+    height: 500px;
+    left: 350px;
+    top: 130px;
+=======
+h1{
+    position: absolute;
+    width: 800px;
+    height: 480px;
+    left: 350px;
+    top: 77px;
+    font-family: 'Karla';
+    font-weight: 700;
+    text-align:center;
+    font-size: 40px;
+    color: #000000;
+}
+
+.animal{
+    position: absolute;
+    width: 800px;
+    height: 480px;
+    left: 350px;
+    top: 197px;
+>>>>>>> Stashed changes
+    background: #F6FBF9;
+    border-radius: 49.0901px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align:left;
+    color: #000000;
+<<<<<<< Updated upstream
+    padding-left: 40px;
+    padding-top: 30px;
+    padding-bottom: 120px;
+=======
+    padding-left: 80px;
+    padding-top: 30px;
+>>>>>>> Stashed changes
+}
+
+.download_sing{
+    position: absolute;
+    margin-bottom: auto;
+    left:650px;
+<<<<<<< Updated upstream
+    top: 653px;
+=======
+    top: 742px;
+>>>>>>> Stashed changes
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:10px 50px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    background: #005E34;
+    border-radius: 23px;
+    border: 10px solid white;
+}
+.form-animal{
+    position: absolute;
+<<<<<<< Updated upstream
+    width: 850px;
+    height: 320px;
+    left: 350px;
+    top: 733px;
+=======
+    width: 800px;
+    height: 320px;
+    left: 350px;
+    top: 830px;
+>>>>>>> Stashed changes
+    background: #F6FBF9;
+    border-radius: 49.0901px;
+    padding-left: 40px;
+    padding-top: 30px;
+}
+label{
+    text-decoration: none;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align:left;
+    color: #000000;  
+}
+input[type=file] {
+    left:800px;
+    width: 350px;
+    max-width: 100%;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+<<<<<<< Updated upstream
+    color: black;
+=======
+    color: white;
+>>>>>>> Stashed changes
+    font-size: 20px;
+    padding: 5px;
+    background: #fff;
+}
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #005E34;
+    padding: 10px 20px;
+    border-radius: 23px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+}
+  
+  input[type=file]::file-selector-button:hover {
+    background: darkgreen;
+}
+.recommend{
+    margin-top: 1px;
+    width: 90%;
+    height: 35px;
+    color: #000000;
+    background-color: rgb(218, 218, 218);
+    border-radius: 15px;
+    border-color: rgb(182, 182, 182);
+    border-style: none;
+    padding-left: 20px;
+}
+.id_recommend{
+    margin-top: 1px;
+    width: 90%;
+    height: 35px;
+    color: #000000;
+    background-color: rgb(218, 218, 218);
+    border-radius: 15px;
+    border-color: rgb(182, 182, 182);
+    border-style: none;
+    padding-left: 20px;
+}
+
+input {
+    margin-right: 20px;
+    border: none;
+    background: #005E34;
+    padding: 10px 40px;
+    border-radius: 23px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+   
+}
+d{
+    position: absolute;
+    padding: 30px 30px;
+    margin-bottom: 30px ;
+<<<<<<< Updated upstream
+    width: 830px;
+    height: 300px;
+    left: 350px;
+    top:1140px;
+=======
+    width: 780px;
+    height: 300px;
+    left: 350px;
+    top:1215px;
+>>>>>>> Stashed changes
+    background: #F6FBF9;
+    border-radius: 49.0901px;
+    
+}
+c{
+    left: 370px;
+    top:1330px;
+    padding:10px 30px;
+    color: #FFFFFF;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    background: #005E34;
+    font-size: 20px;
+    border-radius: 23px;
+<<<<<<< Updated upstream
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.staff_sing{
+    position: absolute;
+    top: 560px;
+    left: 450px;
+=======
+}
+.staff_sing{
+    left:350px;
+    top: 50px;
+>>>>>>> Stashed changes
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:10px 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left:350px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    background: #005E34;
+    text-align:center;
+    border-radius: 23px;
+}
+.medic_sing{
+<<<<<<< Updated upstream
+    position: absolute;
+    top: 560px;
+    left: 130px;
+=======
+    left:450px;
+    top: 50px;
+>>>>>>> Stashed changes
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:10px 30px;
+    margin-top: 10px;
+<<<<<<< Updated upstream
+    margin-bottom: 100px;
+=======
+    margin-bottom: 10px;
+>>>>>>> Stashed changes
+    margin-left:350px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    background: #005E34;
+    text-align:center;
+    border-radius: 23px;
+}
+.add_sing{
+<<<<<<< Updated upstream
+    position: absolute;
+    top: 560px;
+    left:328px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:11px 30px;
+=======
+    left:450px;
+    top: 50px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:10px 30px;
+>>>>>>> Stashed changes
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left:350px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    background: #005E34;
+    text-align:center;
+<<<<<<< Updated upstream
+    border-radius: 20px;
+}
+f{
+    position: absolute;
+    top:90px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align:left;
+    color: #000000;
+}
+rect{
+    position: absolute;
+    width: 800px;
+    height: 220px;
+    left: 350px;
+    top: 1400px;
+    background: transparent;
+}
+=======
+    border-radius: 23px;
+}
+
+>>>>>>> Stashed changes
+.download_sing:hover,  .ddd_sign:hover, .staff_sing:hover, .medic_sing:hover, .add_sing:hover {
+    background-color: darkgreen;
+    }
+.download_sing:active, .ddd_sign:active, .staff_sing:active, .medic_sing:active, .add_sing:active {
+    background-color: rgb(76, 110, 18);
+}
+<<<<<<< Updated upstream
+.empty{
+    position: relative;
+    height: 30px;
+    width: 2px;
+    top: 1100px;
+=======
+.rec{
+    
+>>>>>>> Stashed changes
+}

@@ -1,12 +1,29 @@
-{% extends 'layout.html' %}
-{% block content %}
-<h1>{{title}}</h1>
-<form action="" method="post" class="form-new-animal" enctype=multipart/form-data>
-<button><a href="{{ url_for('profiles_employees') }}">Обновить страницу</a></button>
-</form>
-{% for user in list_of_users %}
-<ul>
-<a href="{{ url_for('profile', nickname=user.login) }}">{{ user.login }}</a>
-</ul>
-{% endfor %}
-{% endblock %}
+
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="/static/css/profiles_employees.css" rel="stylesheet" />
+    <title>{{layout}}</title>
+</head>
+<body>
+    {% extends 'layout.html' %}
+    {% block content %}
+    <!--список сотрудников-->
+    <h1>Список сотрудников</h1>
+    <form action="" method="post" class="form-new-animal" enctype=multipart/form-data>
+        <a class="add_sign" href="{{ url_for('profiles_employees') }}">Обновить</a>
+
+    <rect>
+        {% for user in list_of_users %}
+        <ul>
+        <a href="{{ url_for('profile', nickname=user.login) }}">{{ user.login }}</a>
+        </ul>
+        {% endfor %}
+        {% endblock %}
+    </rect>
+    <f></f>
+    </form>
+
+
+
+</body>
+</html>

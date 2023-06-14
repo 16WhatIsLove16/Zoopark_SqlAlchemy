@@ -1,9 +1,19 @@
+<head>
+<<<<<<< Updated upstream
+    <link type="text/css" href="/static/css/profile.css" rel="stylesheet" />      
+    <title>{{layout}}</title>                                       
+=======
+    <meta charset="UTF-8">
+    <link type="text/css" href="/static/css/profile.css" rel="stylesheet" />      <!--Написать правильные ссылки-->
+    <title>{{layout}}</title>                                        <!--Написать правильное название-->
+>>>>>>> Stashed changes
+</head>
 {% extends 'layout.html' %}
+
 {% block content %}
 <h1>{{title}}</h1>
 {% for p in personal %}
-<form action="" method="POST" enctype=multipart/form-data>
-    <button><a href="{{ url_for('profile', nickname=personal[0].login) }}">Обновить страницу</a></button>
+<form method="POST">
     <table>
         <tr>
             <td>ФИО</td>
@@ -21,17 +31,20 @@
             <td>Телефон</td>
             <td>{{ p.pr.telephone }}</td>
         </tr>
-        {% if p.pr.post != 'Администратор' %}
         <tr>
-            <td><a href="{{ url_for('animals') }}">Список животных</a></td>
+<<<<<<< Updated upstream
+=======
+            <td><a class="empty">Список животных</a></td>
         </tr>
-        {% endif %}
-        {% if p.pr.post == 'Администратор' %}
         <tr>
-            <td><a href="{{ p.url }}"> {{ p.pr.post }}</a></td>
+>>>>>>> Stashed changes
+            <td><a class="animal_sign" href="{{ url_for('animals') }}">Список животных</a></td>
+        {% if p.pr.post == 'Администратор' %}
+            <td><a class="post_sign" href="{{ p.url }}"> {{ p.pr.post }}</a></td>
         </tr>
         {% endif %}
     </table>
 </form>
+
 {% endfor %}
 {% endblock %}

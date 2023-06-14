@@ -32,7 +32,11 @@ body{
 .post{
     font-family: 'Karla';
     font-style: normal;
-    width: 115px;
+<<<<<<< Updated upstream
+    width: 200px;
+=======
+    width: 180px;
+>>>>>>> Stashed changes
     font-weight: 400;
     font-size: 17px;
     line-height: 20px;

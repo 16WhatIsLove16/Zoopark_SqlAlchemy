@@ -1,0 +1,68 @@
+/*список сотрудников*/
+h1{
+    position: absolute;
+    width: 400px;
+    height: 40px;
+    left: 335px;
+    top: 87px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:18px 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left:15px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    background: #5A8B47;
+    text-align:center;
+    border-radius: 23px;
+}
+rect{
+    position: absolute;
+    margin-bottom: 30px;
+    width: 800px;
+    height: 430px;
+    left: 350px;
+    top: 200px;
+    background: #F6FBF9;
+    border-radius: 49.0901px;
+    padding-left: 40px;
+    padding-top: 30px;
+}
+f{
+    position: absolute;
+    width: 800px;
+    height: 220px;
+    left: 350px;
+    top: 800px;
+    background: transparent;
+}
+
+ul{
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    color: black;
+}
+.add_sign{
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:18px 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left:350px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    background: #005E34;
+    text-align:center;
+    border-radius: 23px; 
+}
+.add_sign:hover{
+    background-color: darkgreen;
+    }
+.add_sign:active{
+    background-color: rgb(76, 110, 18);
+}
