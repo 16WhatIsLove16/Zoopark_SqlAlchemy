@@ -39,14 +39,14 @@
     <c>История</c>
     <n>
     {% for clean in list_cleaning %}
-    <div class="clean">Вольер {{ animal.type[:-1] }}ы убран {{ clean.date_clean }} в {{ clean.time_clean }}</div>
+    <div class="message">Вольер {{ animal.type[:-1] }}ы убран {{ clean.date_clean }} в {{ clean.time_clean }}</div>
     {% endfor %}
     {% for food in list_food %}
-    <div class="fod">{{ animal.type }} покормлена {{ food.date_food }} в {{ food.time_food }}</div>
+    <div class="message">{{ animal.type }} покормлена {{ food.date_food }} в {{ food.time_food }}</div>
     {% endfor %}
 
     {% for water in list_water %}
-    <div class="water">{{ animal.type }} намыта {{ water.date_of_procedures }} в {{ water.time_water }}</div>
+    <div class="message">{{ animal.type }} намыта {{ water.date_of_procedures }} в {{ water.time_water }}</div>
     {% endfor %}
 
     </n>

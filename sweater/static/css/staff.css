@@ -64,6 +64,7 @@ c{
     top: 530px;
     background: #F6FBF9;
     border-radius: 49.0901px;
+    margin-bottom: 10px;
 }
 
 .data_food{
@@ -130,6 +131,7 @@ c{
     border-color: rgb(182, 182, 182);
     border-style: none;
     padding-left: 20px;
+        margin-bottom: 10px;
 }
 f{
     position: absolute;
@@ -220,4 +222,10 @@ n{
     }
 .add_sign:active{
     background-color: rgb(76, 110, 18);
+}
+.message{
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 10px;
 }

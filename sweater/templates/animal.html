@@ -16,7 +16,7 @@
 <form action="" method="post">
     <table>
         <tr>
-            <td>Вид:</td>
+            <td style=" width: 400px;">Вид:</td>
             <td>{{ animal.type }}</td>
         </tr>
         <tr>
@@ -36,30 +36,37 @@
             <td>{{ animal.aviary.id }}</td>
         </tr>
         <tr>
-            <td>Описание:</td>
+            <td >Описание:</td>
         </tr>
         <tr>
-            <td>{{ animal.description }}</td>
+            <td style="color: white;">Описание:</td>
         </tr>
+        <tr>
+            <td style="color: white;">Описание:</td>
+        </tr>
+
     </table>
+    <div class="discription"> {{ animal.description }} </div>
+    <a class="reboot" href="{{ url_for('animal', alias=animal.type) }}">Обновить</a>
+    {% endfor %}
 </form>
 
-{% endfor %}
+
 
 {% for u in download %}
     {% if url == 'staff' %}
     <p><a class="add_sing" href="{{ url_for('staff', alias=title) }}">Заполнить отчёт</a></p>
     {% elif url == 'admin' %}
 
-        {% for message in messages %}
-            <div>{{ message.animal_id }}  {{ message.text }}</div>
-        {% endfor %}
-
     <p><a class="staff_sing" href="{{ url_for('staff', alias=title) }}">Заполнить отчёт персонала</a></p>
     <p><a class="medic_sing" href="{{ url_for('download', upload_id=u.animal_id) }}">Заполнить отчёт медика</a></p>
     {% elif url == 'medic' %}
+    <d><c>Рекомендации</c>
+        {% for message in messages %}
+        <div class="rec">{{ message.id }}  {{ message.text }}</div>
+        {% endfor %}
+    </d>
 
-</div>   
     <p><a class="download_sing" href="{{ url_for('download', upload_id=u.animal_id) }}">Заполнить отчёт</a></p>
     <form action="" method="post" class="form-animal" enctype=multipart/form-data>
 
@@ -71,11 +78,7 @@
 
     <div class="empty_med"></div>
 
-    <d><c>Рекомендации</c>
-        {% for message in messages %}
-        <div class="rec">{{ message.id }}  {{ message.text }}</div>
-    {% endfor %}
-    </d>
+
     <div class="empty_staff"></div>
     {% else %}
         {{ pass }}
