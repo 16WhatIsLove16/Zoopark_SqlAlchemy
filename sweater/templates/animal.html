@@ -43,13 +43,7 @@
         </tr>
     </table>
 </form>
-<div class="animal">
-    <p>Вид: {{ animal.type }}</p>
-    <p>Код: {{ animal.id }}</p>
-    <p>Статус: {{ animal.status }}</p>
-    <p>Дата поступления: {{ animal.date_of_receipt }}</p>
-    <p>Код вольера: {{ animal.aviary.id }}</p>
-    <p>Описание: {{ animal.description }}</p>
+
 {% endfor %}
 
 {% for u in download %}
@@ -75,14 +69,14 @@
         <p><input type="submit" value="Добавить" class="my_button"/></p>
     </form>
 
-    <div class="empty"></div>
+    <div class="empty_med"></div>
 
     <d><c>Рекомендации</c>
         {% for message in messages %}
         <div class="rec">{{ message.id }}  {{ message.text }}</div>
     {% endfor %}
     </d>
-    
+    <div class="empty_staff"></div>
     {% else %}
         {{ pass }}
     {% endif %}
