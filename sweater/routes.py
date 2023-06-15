@@ -256,7 +256,6 @@ def delete_animal():
         try:
             animal = request.form['animal']
             choose_animal = Animals.query.filter_by(type=animal).first()
-            print(choose_animal.water_treatments)
             lst = [choose_animal, choose_animal.aviary,
                    choose_animal.medical_card,
                    choose_animal.water_treatments[0],
@@ -266,8 +265,6 @@ def delete_animal():
 
             for item in lst:
                 if item:
-                    print(item)
-                    print(type(item))
                     db.session.delete(item)
                     db.session.flush()
             db.session.commit()

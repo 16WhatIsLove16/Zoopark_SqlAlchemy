@@ -17,12 +17,12 @@
     <a class="add_sign" href="{{ url_for('delete_user') }}">Обновить</a>
 
 <rect>
-<p> <input class="typ_users" type="text" name="login" value="" required placeholder="Введите логин человека, которого нужно удалить" />
-<input type="submit" value="Удалить" /></p>
+    <p> <input class="typ_users" type="text" name="login" value="" required placeholder="Введите логин человека, которого нужно удалить" />
+    <input type="submit" value="Удалить" /></p>
 
-{% for us in list_of_users %}
-    <p><label style="margin-left:55px">{{ us.login }}</label></p>
-{% endfor %}
+    {% for us in list_of_users %}
+        <p><label style="margin-left:55px">{{ us.login }}</label></p>
+    {% endfor %}
 </rect>
 <f></f>
 </form>
